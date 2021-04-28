@@ -8,12 +8,13 @@ export default class NewsApiService {
   }
 
   fetchArticles() {
-    console.log(this);
     const url = `${BASE_URL}?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=12&key=${API_KEY}`;
-    fetch(url)
+    return fetch(url)
       .then(r => r.json())
       .then(data => {
         this.incrementPage();
+
+        return data;
       });
   }
 
