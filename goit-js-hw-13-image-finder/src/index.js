@@ -15,7 +15,7 @@ const btnLoadMore = new BtnLoadMore({
 const newsApiService = new NewsApiService();
 
 refs.searchForm.addEventListener('submit', onSearch);
-btnLoadMore.refs.button.addEventListener('click', fetchArticles);
+btnLoadMore.refs.button.addEventListener('click', onLoadMore);
 
 function onSearch(e) {
   e.preventDefault();
@@ -32,9 +32,10 @@ function onSearch(e) {
   fetchArticles();
 }
 
-// function onLoadMore() {
-//   fetchArticles();
-// }
+function onLoadMore() {
+  fetchArticles();
+  windowsScrolling();
+}
 
 function fetchArticles() {
   btnLoadMore.disable();
@@ -48,4 +49,14 @@ function appendArticlesMarkup(images) {
 
 function clearArticleContainer() {
   refs.articlesContainer.innerHTML = '';
+}
+
+function windowsScrolling() {
+  const totalScrollHeight = document.body.clientHeight;
+
+  window.scrollTo({
+    top: totalScrollHeight,
+    left: 0,
+    behavior: 'smooth',
+  });
 }
