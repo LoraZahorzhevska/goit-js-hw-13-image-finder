@@ -54,9 +54,11 @@ function clearArticleContainer() {
 function windowsScrolling() {
   const totalScrollHeight = document.body.clientHeight;
 
-  window.scrollTo({
-    top: totalScrollHeight,
-    left: 0,
-    behavior: 'smooth',
-  });
+  setTimeout(() => {
+    window.scrollTo({
+      top: totalScrollHeight,
+      left: 0,
+      behavior: 'smooth',
+    });
+  }, 500);
 }

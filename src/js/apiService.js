@@ -15,7 +15,8 @@ export default class NewsApiService {
         this.incrementPage();
 
         return data;
-      });
+      })
+      .catch(error => console.log(error));
   }
 
   incrementPage() {
